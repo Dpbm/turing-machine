@@ -4,26 +4,14 @@ public class State {
     private String id;
     private boolean firstState = false;
     private boolean finalState = false;
-    private Transitions[] transitions;
+    private Transition[] transitions;
 
-    public State(String id, Transitions[] transitions) {
+    public State(String id, Transition[] transitions) {
         this.id = id;
         this.transitions = transitions;
     }
 
-    public State(String id, Transitions[] transitions, boolean firstState) {
-        this.id = id;
-        this.transitions = transitions;
-        this.firstState = firstState;
-    }
-
-    public State(String id, Transitions[] transitions, boolean finalState) {
-        this.id = id;
-        this.transitions = transitions;
-        this.finalState = finalState;
-    }
-
-    public State(String id, Transitions[] transitions, boolean firstState, boolean finalState) {
+    public State(String id, Transition[] transitions, boolean firstState, boolean finalState) {
         this.id = id;
         this.transitions = transitions;
         this.firstState = firstState;
