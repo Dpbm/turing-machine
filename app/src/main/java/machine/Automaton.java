@@ -2,6 +2,7 @@ package machine;
 
 import machine.exceptions.FirstStateException;
 import machine.exceptions.TransitionNotFound;
+import machine.messages.Success;
 import machine.transition.Action;
 import machine.transition.Direction;
 
@@ -27,7 +28,7 @@ public class Automaton {
         for (State state : this.states) {
             if (state.isFirst()) {
                 this.firstState = state;
-                break;
+                return;
             }
         }
 
@@ -53,19 +54,34 @@ public class Automaton {
         this.actualSymbol = this.tape[this.symbolIndex];
     }
 
-    public void test() throws ArrayIndexOutOfBoundsException, TransitionNotFound {
-        Action transitionResult = this.makeTransition();
-        this.actualState = transitionResult.getNext();
-        this.write(transitionResult.getWrite());
-        this.move(transitionResult.getDirection());
-        this.updateActualSymbol();
+    public void test() throws ArrayIndexOutOfBoundsException, TransitionNotFound, Success {
+        while (true) {
+            Action transitionResult = this.makeTransition();
+            this.actualState = transitionResult.getNext();
+            this.write(transitionResult.getWrite());
+            this.move(transitionResult.getDirection());
+
+            try {
+                this.updateActualSymbol();
+            } catch (ArrayIndexOutOfBoundsException error) {
+                if (transitionResult.getReachedFinal())
+                    throw new Success();
+                else
+                    throw new ArrayIndexOutOfBoundsException("Reached the end of the tape");
+
+            }
+        }
     }
 
     private Action makeTransition() throws TransitionNotFound {
         return this.actualState.test(this.actualSymbol);
     }
 
-    private void write(char newSymbol) {
+    private void write(char newSymbol) throws ArrayIndexOutOfBoundsException {
         this.tape[this.symbolIndex] = newSymbol;
+    }
+
+    public String getTape() {
+        return new String(this.tape);
     }
 }

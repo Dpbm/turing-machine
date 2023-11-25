@@ -56,7 +56,7 @@ public class State {
             if (transition.getReadSymbol() == symbol)
                 return transition;
 
-        throw new TransitionNotFound();
+        throw new TransitionNotFound(this.id, symbol);
     }
 
     public Action test(char symbol) throws TransitionNotFound {

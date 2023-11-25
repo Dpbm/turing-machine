@@ -6,11 +6,13 @@ public class Action {
     private char write;
     private Direction direction;
     private State next;
+    private boolean reachedFinal;
 
-    public Action(char write, Direction direction, State next) {
+    public Action(char write, Direction direction, State next, boolean reachedFinal) {
         this.write = write;
         this.direction = direction;
         this.next = next;
+        this.reachedFinal = reachedFinal;
     }
 
     public char getWrite() {
@@ -23,5 +25,9 @@ public class Action {
 
     public State getNext() {
         return this.next;
+    }
+
+    public boolean getReachedFinal() {
+        return this.reachedFinal;
     }
 }
