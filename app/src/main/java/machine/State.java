@@ -2,6 +2,9 @@ package machine;
 
 import java.util.ArrayList;
 
+import machine.exceptions.TransitionNotFound;
+import machine.transition.Action;
+
 public class State {
     private String id;
     private boolean firstState = false;
@@ -47,4 +50,18 @@ public class State {
     public String getId() {
         return this.id;
     }
+
+    private Transition getTransitionForSymbol(char symbol) throws TransitionNotFound {
+        for (Transition transition : this.transitions)
+            if (transition.getReadSymbol() == symbol)
+                return transition;
+
+        throw new TransitionNotFound();
+    }
+
+    public Action test(char symbol) throws TransitionNotFound {
+        Transition nextTransition = this.getTransitionForSymbol(symbol);
+        return nextTransition.getAction();
+    }
+
 }
