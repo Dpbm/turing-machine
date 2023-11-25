@@ -36,7 +36,7 @@ public class ExceptionsTest {
         try {
             throw new InvalidTape();
         } catch (InvalidTape erorr) {
-            assertEquals(erorr.getMessage(), "Tape must have, at least, 1 symbol!");
+            assertEquals(erorr.getMessage(), "The tape must have, at least, 1 symbol!");
         }
     }
 }
