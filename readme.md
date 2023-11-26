@@ -2,6 +2,8 @@
 
 A java library to simulate turing machines using automatons.
 
+![gh workflow](https://github.com/Dpbm/turing-machine/actions/workflows/gh.yml/badge.svg)
+
 ---
 
 This project is a try to map the idea of turing machines using `OOP` with java.

@@ -5,6 +5,7 @@
         "github",
         "javadoc",
         "Javadoc",
+        "temurin",
         "turing"
     ],
     "java.configuration.updateBuildConfiguration": "automatic"
