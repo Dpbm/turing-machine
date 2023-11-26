@@ -1,4 +1,4 @@
-<svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<svg width="800" height="600"  style="background-color:#fff" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <ellipse stroke="black" stroke-width="1" fill="none" cx="157.5" cy="404.5" rx="30" ry="30" />
     <text x="147.5" y="410.5" font-family="Times New Roman" font-size="20">q0</text>
     <ellipse stroke="black" stroke-width="1" fill="none" cx="150.5" cy="114.5" rx="30" ry="30" />
