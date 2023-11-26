@@ -184,6 +184,8 @@ and the input tapes looks like:
 &aabbϵ
 ```
 
+[`Note: There's an example code in /lib/src/test/examples/App.java check it out`](./lib/src/test/examples/App.java)
+
 ## Installation
 
 To install the `machine` library, follow the instruction at [github packages](https://github.com/Dpbm/turing-machine/packages/1996975), you may need [maven](https://maven.apache.org/) for that.
