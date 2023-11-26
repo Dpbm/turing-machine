@@ -97,12 +97,6 @@ signing {
     sign(publishing.publications["turing-machine"])
 }
 
-tasks.javadoc {
-    if (JavaVersion.current().isJava9Compatible) {
-        (options as StandardJavadocDocletOptions).addBooleanOption("html5", true)
-    }
-}
-
 tasks.jar {
     manifest {
         attributes(mapOf("Implementation-Title" to project.name,
