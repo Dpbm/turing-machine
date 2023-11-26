@@ -58,7 +58,7 @@ public class App {
         try {
             automaton = new Automaton(states, "&aaaabbbbbn");
 
-        } catch (FirstStateException error) {
+        } catch (Exception error) {
             System.out.println(error.getMessage());
             System.exit(1);
         }

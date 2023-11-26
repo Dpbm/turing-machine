@@ -1,6 +1,7 @@
 package machine;
 
 import machine.exceptions.FirstStateException;
+import machine.exceptions.InvalidTape;
 import machine.exceptions.TransitionNotFound;
 import machine.messages.Success;
 import machine.transition.Action;
@@ -16,9 +17,13 @@ public class Automaton {
 
     private State actualState;
 
-    public Automaton(State[] states, String tape) throws FirstStateException {
+    public Automaton(State[] states, String tape) throws FirstStateException, InvalidTape {
         this.states = states;
         this.tape = tape.toCharArray();
+
+        if (this.tape.length == 0)
+            throw new InvalidTape();
+
         this.actualSymbol = this.tape[this.symbolIndex];
         this.getFirstState();
         this.actualState = this.firstState;
