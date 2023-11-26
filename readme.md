@@ -35,14 +35,15 @@ The elements of this graph are:
 - circles: representing the machine states
 - arrows: representing the transitions between each state
 - labels: are the commands for each transition. These commands follow this pattern: (read)/(instruction),(move).
-    - read: is the symbol that we expect to read
-    - instruction: what we do when a symbol is reached, (like `P` for print, or you can see this a symbol to rewrite the tape).
-    - move: the direction that you'll follow in the tape (`LEFT/RIGHT`)
+  - read: is the symbol that we expect to read
+  - instruction: what we do when a symbol is reached, (like `P` for print, or you can see this a symbol to rewrite the tape).
+  - move: the direction that you'll follow in the tape (`LEFT/RIGHT`)
 - two circles: the final state. If your program reach it after passing through all the symbols, your the given input is correct and the program executed successfully.
 
 The head will read symbol-by-symbol following the label instructions. Case your input has a symbol that for the actual state doesn't have a transition for it, the program `crashes`, so this input is not accepted by that given machine configuration.
 
 for more details check:
+
 - [Wikipedia](https://en.wikipedia.org/wiki/Turing_machine)
 - [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/turing-machine/)
 - [brilliant](https://brilliant.org/wiki/turing-machines/)
@@ -149,9 +150,11 @@ The [TransitionNotFound](./lib/src/main/java/machine/exceptions/TransitionNotFou
 
 | method |  arguments | returns |throws|
 |--------|------------|---------|------|
-|constructor|`State[] states`, `String tape`|-|`FirstStateException`,`InvalidTape`|
+|constructor|`State[] states`, `String tape`|-|`FirstStateException`, `InvalidTape`|
 |getTape|-|`String`|-|
 |test|-|`boolean`|`TransitionNotFound`|
+
+The [InvalidTape](./lib/src/main/java/machine/exceptions/InvalidTape.java) exception is raised when the given tape has no symbols into.
 
 ---
 
@@ -194,9 +197,25 @@ You can also install maven as an `ASDF` plugin:
 
 - [maven](https://github.com/Proemion/asdf-maven)
 
+## Testing
+
+After [installing gradle](https://docs.gradle.org/current/userguide/installation.html) and cloning this repo, you can run the tests by doing:
+
+```bash
+./gradlew test
+```
+
+## Build
+
+You can also build the project by your own, using:
+
+```bash
+./gradlew build
+```
+
 ## Contributing
 
 If you want to help this project, feel free to create an issue, make some PRs and text with some other contributors at this repo.
-Fix some bugs, add features, fix typos and etc. 
+Fix some bugs, add features, fix typos and etc.
 
 *Remember to be kind with everyone!*

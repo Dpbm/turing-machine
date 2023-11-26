@@ -1,12 +1,18 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
     "cSpell.words": [
+        "aaabbb",
+        "aabb",
+        "aabbn",
+        "aabbϵ",
         "Doclet",
         "Entscheidungsproblem",
         "github",
         "gradlew",
         "javadoc",
         "Javadoc",
+        "kotlin",
+        "opensuse",
         "temurin",
         "turing"
     ],
