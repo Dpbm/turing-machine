@@ -27,7 +27,7 @@ public class State {
         this.finalState = finalState;
     }
 
-    public void addTransiton(Transition transition) {
+    public void addTransition(Transition transition) {
         transitions.add(transition);
     }
 

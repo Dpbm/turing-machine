@@ -44,8 +44,8 @@ public class StateTest {
         char symbol = '1';
         char write = 'x';
         Direction direction = Direction.RIGHT;
-        Transition transiton = new Transition(symbol, write, direction, this.state);
-        this.state.addTransiton(transiton);
+        Transition transition = new Transition(symbol, write, direction, this.state);
+        this.state.addTransition(transition);
 
         try {
             Action test = this.state.test(symbol);
@@ -61,9 +61,9 @@ public class StateTest {
     @Test
     public void StateTestMethodRaiseError() {
         char symbol = '2';
-        Transition transiton = new Transition('1', 'x', Direction.RIGHT, this.state);
+        Transition transition = new Transition('1', 'x', Direction.RIGHT, this.state);
 
-        this.state.addTransiton(transiton);
+        this.state.addTransition(transition);
 
         assertThrows(TransitionNotFound.class, () -> this.state.test(symbol));
     }

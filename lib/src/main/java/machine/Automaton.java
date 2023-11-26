@@ -3,7 +3,6 @@ package machine;
 import machine.exceptions.FirstStateException;
 import machine.exceptions.InvalidTape;
 import machine.exceptions.TransitionNotFound;
-import machine.messages.Success;
 import machine.transition.Action;
 import machine.transition.Direction;
 
@@ -59,7 +58,7 @@ public class Automaton {
         this.actualSymbol = this.tape[this.symbolIndex];
     }
 
-    public void test() throws ArrayIndexOutOfBoundsException, TransitionNotFound, Success {
+    public boolean test() throws TransitionNotFound {
         while (true) {
             Action transitionResult = this.makeTransition();
             this.actualState = transitionResult.getNext();
@@ -69,13 +68,10 @@ public class Automaton {
             try {
                 this.updateActualSymbol();
             } catch (ArrayIndexOutOfBoundsException error) {
-                if (transitionResult.getReachedFinal())
-                    throw new Success();
-                else
-                    throw new ArrayIndexOutOfBoundsException("Reached the end of the tape");
-
+                return transitionResult.getReachedFinal();
             }
         }
+
     }
 
     private Action makeTransition() throws TransitionNotFound {
