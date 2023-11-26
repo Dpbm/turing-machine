@@ -63,6 +63,8 @@ For `ASDF` users, I recommend you check these plugins:
 - [java](https://github.com/halcyon/asdf-java)
 - [gradle](https://github.com/rfrancis/asdf-gradle)
 
+For `opensuse` users, I've left a script to install `java` and setup the `JAVA_HOME`, check it [here](./utils/java.sh).  
+
 ### Structure
 
 The main structure has 3 elements:
@@ -179,3 +181,18 @@ and the input tapes looks like:
 # automaton
 &aabbϵ
 ```
+
+## Installation
+
+To install the `machine` library, follow the instruction at [github packages](https://github.com/Dpbm/turing-machine/packages/1996975), you may need [maven](https://maven.apache.org/) for that.
+
+You can also install maven as an `ASDF` plugin:
+
+- [maven](https://github.com/Proemion/asdf-maven)
+
+## Contributing
+
+If you want to help this project, feel free to create an issue, make some PRs and text with some other contributors at this repo.
+Fix some bugs, add features, fix typos and etc. 
+
+*Remember to be kind with everyone!*
