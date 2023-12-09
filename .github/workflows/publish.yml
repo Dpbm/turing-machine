@@ -1,41 +1,26 @@
-name: Publish maven package
+name: Test and build
 on:
-    push:
-        branches: ['*']
-env:
-    OSSRH_USERNAME: Dpbm
+  push:
+    branches: ["*"]
 
 jobs:
-    test_build_publish:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout project sources
-              uses: actions/checkout@v3
+  test_build_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project sources
+        uses: actions/checkout@v3
 
-            - name: Setup java
-              uses: actions/setup-java@v3
-              with:
-                  java-version: '8'
-                  distribution: 'temurin'
+      - name: Setup java
+        uses: actions/setup-java@v3
+        with:
+          java-version: "8"
+          distribution: "temurin"
 
-            - name: Setup Gradle
-              uses: gradle/gradle-build-action@v2
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
 
-            - name: Run tests
-              run: ./gradlew test
+      - name: Run tests
+        run: ./gradlew test
 
-            - name: Run build with Gradle Wrapper
-              run: ./gradlew build
-
-            - name: Instal gpg key
-              run: cat <(echo -e "${{ secrets.GPG_SECRET_KEY }}") | gpg --batch --import
-
-            - name: Validate Gradle wrapper
-              uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
-
-            - name: Publish package
-              uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
-              with:
-                  arguments: publish
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Run build with Gradle Wrapper
+        run: ./gradlew build
