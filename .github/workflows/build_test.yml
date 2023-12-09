@@ -1,0 +1,26 @@
+name: Test and build
+on:
+  push:
+    branches: ["*"]
+
+jobs:
+  test_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project sources
+        uses: actions/checkout@v3
+
+      - name: Setup java
+        uses: actions/setup-java@v3
+        with:
+          java-version: "8"
+          distribution: "temurin"
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Run build with Gradle Wrapper
+        run: ./gradlew build
