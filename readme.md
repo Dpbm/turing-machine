@@ -2,7 +2,7 @@
 
 A java library to simulate turing machines using automatons.
 
-![gh workflow](https://github.com/Dpbm/turing-machine/actions/workflows/gh.yml/badge.svg)
+![actions workflow](https://github.com/Dpbm/turing-machine/actions/workflows/build_test.yml/badge.svg)
 
 ---
 
@@ -211,6 +211,31 @@ You can also build the project by your own, using:
 
 ```bash
 ./gradlew build
+```
+
+## Publishing
+
+To publish this package to a github package, you need to add a `classic token` to you account, and grant the access to read and write packages, to do that take a look at: [github article](https://docs.github.com/en/actions/publishing-packages/publishing-java-packages-with-gradle).
+
+After that, export the `GH_USERNAME` and the `GH_TOKEN` to your environment variables, like:
+
+```bash
+export GH_USERNAME="username"
+export GH_TOKEN="gh_token"
+```
+
+Also, you'll need a `GPG` key to sign the package, follow [the official instructions](https://docs.gradle.org/current/userguide/signing_plugin.html) to ensure that.
+
+Then, run the `gradle publish` to publish to gh packages.
+
+```bash
+./gradlew publish
+```
+
+alternatively, you can pass the variables along with the `gradlew` command:
+
+```bash
+GH_USERNAME="username" GH_TOKEN="gh_token" ./gradlew publish
 ```
 
 ## Contributing
