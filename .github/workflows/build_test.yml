@@ -4,7 +4,7 @@ on:
     branches: ["*"]
 
 jobs:
-  test_build_publish:
+  test_build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout project sources
